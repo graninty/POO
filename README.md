@@ -11,18 +11,18 @@ El Sistema de Gestión de Planillas estará escrito en Java y en usará base de 
 
 ### Clases a utilizar
 
-*Vehiculo
-*Encargo
-*Producto
-*Persona
-*Local
-*Empresa
-*Planilla
+* Vehiculo
+* Encargo
+* Producto
+* Persona
+* Local
+* Empresa
+* Planilla
 
 ## Colaboracion
 
-@AchmedCL
-@fcarvaja
-@fnavarroch
-@graninty
-@Rurikk94
+ - @AchmedCL 
+ - @fcarvaja
+ - @fnavarroch
+ - @graninty
+ - @Rurikk94
