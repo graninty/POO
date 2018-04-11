@@ -14,7 +14,7 @@ public class ListaVehiculo
 	
 	
 	
-	/* Métodos */
+	/* Mï¿½todos */
 	
 	public boolean agregarVehiculo(Vehiculo v)
 	{
@@ -47,7 +47,7 @@ public class ListaVehiculo
 		return false;
 	}
 	
-	public boolean editarVehiculo(String tipo, String modelo, String patente, Vehiculo v)
+	public boolean editarVehiculo(String marca, String tipo, String modelo, String patente, Vehiculo v)
 	{
 		if(listaVehiculos.contains(v))
 		{
@@ -55,6 +55,7 @@ public class ListaVehiculo
 			{
 				if(listaVehiculos.get(i).equals(v))
 				{
+					listaVehiculos.get(i).setMarca(marca);
 					listaVehiculos.get(i).setTipo(tipo);
 					listaVehiculos.get(i).setModelo(modelo);
 					listaVehiculos.get(i).setPatente(patente);
@@ -77,7 +78,7 @@ public class ListaVehiculo
 		{
 			for(int i=0; i<listaVehiculos.size(); i++)
 			{
-				System.out.println(i+1+"-. "+listaVehiculos.get(i).getTipo()+" "+listaVehiculos.get(i).getModelo()+" PATENTE:"+listaVehiculos.get(i).getPatente());
+				System.out.println(i+1+"-. "+listaVehiculos.get(i).getTipo()+" "+listaVehiculos.get(i).getMarca()+" "+listaVehiculos.get(i).getModelo()+" PATENTE:"+listaVehiculos.get(i).getPatente());
 			}
 		}
 		
