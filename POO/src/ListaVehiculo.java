@@ -106,4 +106,51 @@ public class ListaVehiculo
 		}
 	}
 	
+	public boolean existeVehiculo(Vehiculo v)
+	{
+		if(!listaVehiculos.isEmpty())
+		{
+			if(listaVehiculos.contains(v))
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	public boolean existeVehiculo(String patente)
+	{
+		if(!listaVehiculos.isEmpty())
+		{
+			for(int i=0; i<listaVehiculos.size();i++)
+			{
+				if(listaVehiculos.get(i) != null)
+				{
+					if(listaVehiculos.get(i).getPatente().equalsIgnoreCase(patente))
+					{
+						return true;
+					}
+				}
+			}
+		}
+		
+		return false;
+	}
+	
+	public int cantidadVehiculos()
+	{
+		int contador=0;
+		
+		for(int i=0; i<listaVehiculos.size(); i++)
+		{
+			if(listaVehiculos.get(i) != null)
+			{
+				contador++;
+			}
+		}
+		
+		return contador;
+	}
+	
 }
