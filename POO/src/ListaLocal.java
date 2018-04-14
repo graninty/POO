@@ -2,25 +2,28 @@
 
 import java.util.ArrayList;
 
-public class ListaLocal
+public class ListaLocales
 {
     private ArrayList<Local> listaLocales;
 
-    public ListaLocal()
-    {
-        ArrayList<Local> listaLocales = new ArrayList<Local>();
+    public ListaLocales(){
+        locales = new ArrayList<>();
     }
+    
     public boolean agregarLocal(Local local)
     {
-        if(listaLocales.contains(local))
+        if (!locales.isEmpty())
         {
-            return false;
+            Iterator<Local> iteradorL = locales.iterator();        
+            while(iteradorL.hasNext())
+            {
+                Local dato= iteradorL.next();
+                if (dato.getId()==local.getId())
+                    return false;
+            } 
         }
-        else
-        {
-            listaLocales.add(local);
-            return true;
-        }
+        locales.add(local);
+        return true;  
     }
     
     public boolean modificarIdLocal(Persona encargado, Local local)
