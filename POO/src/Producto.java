@@ -1,3 +1,4 @@
+package zakaz;
 
 public class Producto {
 	int id;

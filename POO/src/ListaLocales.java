@@ -1,20 +1,24 @@
+
+package zakaz;
+
 /*Rurikk94 2018.03.29*/
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ListaLocales
 {
     private ArrayList<Local> listaLocales;
 
     public ListaLocales(){
-        locales = new ArrayList<>();
+        listaLocales = new ArrayList<>();
     }
     
     public boolean agregarLocal(Local local)
     {
-        if (!locales.isEmpty())
+        if (!listaLocales.isEmpty())
         {
-            Iterator<Local> iteradorL = locales.iterator();        
+            Iterator<Local> iteradorL = listaLocales.iterator();        
             while(iteradorL.hasNext())
             {
                 Local dato= iteradorL.next();
@@ -22,7 +26,7 @@ public class ListaLocales
                     return false;
             } 
         }
-        locales.add(local);
+        listaLocales.add(local);
         return true;  
     }
     
@@ -106,7 +110,7 @@ public class ListaLocales
         return false;
     }
     
-    public void mostrarLocal()
+    public void mostrarLocales()
     {
         if(listaLocales.isEmpty())
         {
@@ -124,25 +128,34 @@ public class ListaLocales
         }
     }
 	
-    public void mostrarLocal(int id)
+    public Local mostrarLocal(int i)
     {
-        if(listaLocales.isEmpty())
+        if(!listaLocales.isEmpty())
         {
-            return;
+            return listaLocales.get(i);
         }
-        else
-        {
-            for(int i=0; i<listaLocales.size(); i++)
-            {
-                if(listaLocales.get(i).getId()==id)
-		{
-                    System.out.println(
-                        listaLocales.get(i).getId()+"\t"
-                        +listaLocales.get(i).getNombre()+"\t"
-                        +listaLocales.get(i).getDireccion()+"\t"
-                        +listaLocales.get(i).getEncargado().getNombre()+"\t");
-                }
-            }
-        }
+            return null;
     }
+    
+	public Local existeLocal(int id){
+		if(listaLocales.isEmpty())
+			return null;
+		else{
+			for(int i=0;i<listaLocales.size();i++ ){
+				if(id==listaLocales.get(i).getId()){
+					return listaLocales.get(i);
+				}
+			}
+			return null;
+		}
+	}
+	/**
+	 * @return
+	 */
+	public int cantidadLocales(){
+		if(listaLocales.isEmpty())
+			return 0;
+		else
+			return listaLocales.size();
+	}
 }

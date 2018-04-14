@@ -1,3 +1,5 @@
+package zakaz;
+
 import java.util.ArrayList;
 
 public class ListaEmpleados {
@@ -10,6 +12,9 @@ public class ListaEmpleados {
 	public ListaEmpleados(ArrayList<Persona> empleados) {
 		super();
 		this.empleados = empleados;
+	}
+	public ListaEmpleados() {
+		this.empleados = new ArrayList<>();
 	}
 
 	public ArrayList<Persona> getEmpleados() {
@@ -104,6 +109,22 @@ public class ListaEmpleados {
 			return 0;
 		else
 			return empleados.size();
+	}
+        
+        public void mostrarEmpleados(){
+		if(!empleados.isEmpty())
+		{
+			for(int i=0; i<empleados.size();i++){
+                            System.out.println(""+empleados.get(i).getRut()+" "+empleados.get(i).getNombre()+" "+empleados.get(i).getFechaNac());
+			}
+		}	
+	}
+        public Persona mostrarEmpleado(int i){
+		if(!empleados.isEmpty())
+		{
+                    return empleados.get(i);
+		}
+                return null;
 	}
 
 }

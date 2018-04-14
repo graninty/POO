@@ -1,3 +1,5 @@
+package zakaz;
+
 import java.util.ArrayList;
 
 public class ListaProducto {
@@ -9,6 +11,9 @@ public class ListaProducto {
 	public ListaProducto(ArrayList<Producto> listaProducto) {
 		super();
 		this.listaProducto = listaProducto;
+	}
+	public ListaProducto() {
+		this.listaProducto = new ArrayList<>();
 	}
 
 	public ArrayList<Producto> getListaProducto() {
@@ -109,12 +114,20 @@ public class ListaProducto {
 public Producto mostrarProducto(int posicion)
     {
         if (!listaProducto.isEmpty())
-        {   
-            System.out.println("");
+        {
             return listaProducto.get(posicion);
         }
         return null;
     }
+	public void mostrarProductos(){
+		if(listaProducto.isEmpty()){
+		}
+		else{
+			for(int i=0; i<listaProducto.size();i++){
+                            System.out.println(listaProducto.get(i).getId()+" "+listaProducto.get(i).getNombre()+" "+listaProducto.get(i).getValor());
+			}
+		}
+	}
 public int cantidadProductos(){
     return listaProducto.size();
 }

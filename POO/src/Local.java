@@ -1,27 +1,29 @@
-/*Rurikk94 2018.03.29*/
-
+package zakaz;
 public class Local
 {
     private int id;
     private String nombre;
+    private String ciudad;
     private String direccion;
     private Persona encargado;
 
-    public Local(String nombre, int id, String direccion, Persona encargado)
+    public String getCiudad()
     {
-        this.nombre = nombre;
-        this.id = id;
-        this.direccion = direccion;
-        this.encargado = encargado;
-    }
-    public String getNombre()
-    {
-        return nombre;
+        return ciudad;
     }
 
-    public void setNombre(String nombre)
+    public void setCiudad(String ciudad)
     {
+        this.ciudad = ciudad;
+    }
+
+    public Local(int id, String nombre, String ciudad, String direccion, Persona encargado)
+    {
+        this.id = id;
         this.nombre = nombre;
+        this.ciudad = ciudad;
+        this.direccion = direccion;
+        this.encargado = encargado;
     }
 
     public int getId()
@@ -32,6 +34,16 @@ public class Local
     public void setId(int id)
     {
         this.id = id;
+    }
+
+    public String getNombre()
+    {
+        return nombre;
+    }
+
+    public void setNombre(String nombre)
+    {
+        this.nombre = nombre;
     }
 
     public String getDireccion()
@@ -53,4 +65,6 @@ public class Local
     {
         this.encargado = encargado;
     }
+
+
 }

@@ -1,3 +1,5 @@
+package zakaz;
+
 import java.util.ArrayList;
 
 public class ListaVehiculo 
@@ -7,7 +9,7 @@ public class ListaVehiculo
 	
 	public ListaVehiculo()
 	{
-		listaVehiculos = new ArrayList<Vehiculo>();
+		listaVehiculos = new ArrayList<>();
 	}
 	
 	
@@ -83,7 +85,16 @@ public class ListaVehiculo
 		}
 		
 	}
-	
+	public Vehiculo mostrarVehiculo(int i)
+	{
+		if(!listaVehiculos.isEmpty())
+		{
+				return listaVehiculos.get(i);
+			
+		}
+		return null;
+	}
+        
 	public void mostrarVehiculosPorTipo(String tipo)
 	{
 		int contador=1;

@@ -1,3 +1,4 @@
+package zakaz;
 import java.util.ArrayList;
 
 public class ListaEncargo 
@@ -9,11 +10,8 @@ public class ListaEncargo
 	{
 		listaEncargos = new ArrayList<Encargo>();
 	}
-	
-	
-	
-	
-	/* M�todos */
+		
+	/* Métodos */
 	
 	public boolean agregarEncargo(Encargo e)
 	{

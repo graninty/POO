@@ -1,3 +1,4 @@
+package zakaz;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Iterator;
@@ -164,7 +165,7 @@ public class Empresa
             for (int i=0;i<empleados.cantidadEmpleados();i++)
             {
                 query = "INSERT INTO Empleados (nombre,rut,fechaNac) VALUES('"+ empleados.mostrarEmpleado(i).getNombre()+"','"+ empleados.mostrarEmpleado(i).getRut()+ "','" + empleados.mostrarEmpleado(i).getFechaNac()+ "');";
-                System.out.println(query);
+                //System.out.println(query);
                 filas+=conexion.updating(query);                
             }
         System.out.println("Se agregaron "+filas+" filas");
@@ -178,15 +179,13 @@ public class Empresa
         String query;
         query = "DELETE FROM Locales" ;
         conexion.updating(query);
-        int filas=0;
-        if (!locales.locales.isEmpty())
+        if (locales.cantidadLocales()>0)
         {
-            Iterator<Local> iteradorL = locales.locales.iterator();        
-            while(iteradorL.hasNext())
+            int filas=0;
+            for (int i=0;i<locales.cantidadLocales();i++)
             {
-                Local dato= iteradorL.next();
                 query = " INSERT INTO Locales (id,nombre,direccion,ciudad,encargado) VALUES("
-                        +dato.getId()+",'"+dato.getNombre()+"','"+dato.getCiudad()+"','"+dato.getDireccion()+"','"+dato.getEncargado().getRut()+"');";
+                        +locales.mostrarLocal(i).getId()+",'"+locales.mostrarLocal(i).getNombre()+"','"+locales.mostrarLocal(i).getCiudad()+"','"+locales.mostrarLocal(i).getDireccion()+"','"+locales.mostrarLocal(i).getEncargado().getRut()+"');";
                 //System.out.println(query);
                 filas+=conexion.updating(query);
             }
