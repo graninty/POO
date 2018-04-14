@@ -13,11 +13,11 @@ public class ListaEncargo
 	
 	
 	
-	/* Métodos */
+	/* Mï¿½todos */
 	
 	public boolean agregarEncargo(Encargo e)
 	{
-		if(listaEncargos.contains(e))
+		if(this.existeEncargo(e.getDestino(), e.getProducto()) != null)
 		{
 			return false;
 		}
@@ -28,9 +28,23 @@ public class ListaEncargo
 		}
 	}
 	
+	public boolean agregarEncargo(Producto p, int cant, Local loc)
+	{
+		if(this.existeEncargo(loc, p) != null)
+		{
+			return false;
+		}
+		else
+		{
+			Encargo e = new Encargo(p, cant, loc);
+			listaEncargos.add(e);
+			return true;
+		}
+	}
+	
 	public boolean modificarProductoEncargo(Producto p, Encargo e)
 	{
-		if(listaEncargos.contains(e))
+		if(this.existeEncargo(e.getDestino(), e.getProducto()) != null)
 		{
 			for(int i=0; i<listaEncargos.size(); i++)
 			{
@@ -48,7 +62,7 @@ public class ListaEncargo
 	
 	public boolean modificarCantidadEncargo(int n, Encargo e)
 	{
-		if(listaEncargos.contains(e))
+		if(this.existeEncargo(e.getDestino(), e.getProducto()) != null)
 		{
 			for(int i=0; i<listaEncargos.size(); i++)
 			{
@@ -67,7 +81,7 @@ public class ListaEncargo
 	
 	public boolean modificarDestinoEncargo(Local destino, Encargo e)
 	{
-		if(listaEncargos.contains(e))
+		if(this.existeEncargo(e.getDestino(), e.getProducto()) != null)
 		{
 			for(int i=0; i<listaEncargos.size(); i++)
 			{
@@ -84,7 +98,7 @@ public class ListaEncargo
 	
 	public boolean eliminarEncargo(Encargo e)
 	{
-		if(listaEncargos.contains(e))
+		if(this.existeEncargo(e.getDestino(), e.getProducto()) != null)
 		{
 			for(int i=0; i< listaEncargos.size(); i++)
 			{
@@ -109,6 +123,21 @@ public class ListaEncargo
 		}
 		
 		return total;
+	}
+	
+	private Encargo existeEncargo(Local destino, Producto producto)
+	{
+		for(int i=0; i<listaEncargos.size();i++)
+		{
+			if((listaEncargos.get(i).getDestino() != null)&&(listaEncargos.get(i).getProducto() != null))
+			{
+				if((listaEncargos.get(i).getDestino().equals(destino))&&(listaEncargos.get(i).getProducto().equals(producto)))
+				{
+					return (Encargo)listaEncargos.get(i);
+				}
+			}
+		}
+		return null;
 	}
 
 }
