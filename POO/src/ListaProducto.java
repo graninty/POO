@@ -106,5 +106,17 @@ public class ListaProducto {
 			return null;
 		}
 	}
+public Producto mostrarProducto(int posicion)
+    {
+        if (!listaProducto.isEmpty())
+        {   
+            System.out.println("");
+            return listaProducto.get(posicion);
+        }
+        return null;
+    }
+public int cantidadProductos(){
+    return listaProducto.size();
+}
 
 }
