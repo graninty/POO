@@ -195,5 +195,10 @@ public class Empresa
     } 
     private void guardarPlanillas() throws SQLException {}
     private void guardarEncargos() throws SQLException {}
+	
+    public Producto productoMasVendido()
+    {
+    	return productos.productoMasVendido(planillas);
+    }
  
 }
