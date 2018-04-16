@@ -137,5 +137,20 @@ public class ListaEncargo
 		}
 		return null;
 	}
+	
+	
+	
+	public int productoMasPedido(int idProducto)
+	{
+		int suma=0;
+		for(int i=0;i<encargos.size();i++)
+		{
+			if(encargos.get(i).getId()==idProducto)
+			{
+				suma=suma+encargos.get(i).getCantidad();
+			}
+		}
+		return suma;
+	}
 
 }
