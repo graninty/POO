@@ -7,7 +7,7 @@ public class Planilla
 	private int codigo;
 	private Vehiculo transporte;
 	private Persona conductor;
-	private ArrayList<Encargo> encargos;
+	private ListaEncargos encargos;
 	private Local despacho;
 	
 	public Planilla(int codigo)
