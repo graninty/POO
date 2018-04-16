@@ -1,14 +1,16 @@
 package zakaz;
 
-public class ListaPlanillas
+import java.util.*;
+import java.sql.Date;
+public class ListaPlanillas 
 {
-    private ArrayList<Planilla> planillas;
+	private ArrayList<Planilla> planillas;
 	
 	public ListaPlanillas()
 	{
 		planillas=new ArrayList<Planilla>();
 	}
-	public Planilla existePlanilla(int codigo)
+	public Planilla buscarPlanilla(int codigo)
 	{
 		for(int i=0;i<planillas.size();i++)
 		{
@@ -17,13 +19,13 @@ public class ListaPlanillas
 		}
 		return null;
 	}
-	public boolean agregarPlanilla(int codigo)
+	public boolean agregarPlanilla(int codigo,Date fechaInicio,Date fechaFin)
 	{
-		if(existePlanilla(codigo)==null)
+		if(buscarPlanilla(codigo)==null)
 		{
-			Planilla newPlanilla=new Planilla(codigo);
+			Planilla newPlanilla=new Planilla(codigo,fechaInicio,fechaFin);
 			planillas.add(newPlanilla);
-			if(existePlanilla(codigo)!=null)
+			if(buscarPlanilla(codigo)!=null)
 				return true;
 		}
 		return false;
@@ -32,11 +34,11 @@ public class ListaPlanillas
 	{
 		for(int i=0;i<planillas.size();i++)
 		{
-			if(existePlanilla(codigo)!=null)
+			if(buscarPlanilla(codigo)!=null)
 			{
 				if((planillas.get(i).getCodigo())==codigo)
 					planillas.remove(i);
-				if(existePlanilla(codigo)==null)
+				if(buscarPlanilla(codigo)==null)
 					return true;
 			}
 		}
@@ -57,6 +59,7 @@ public class ListaPlanillas
 		}
 		return false;
 	}
+	@SuppressWarnings("unused")
 	public boolean modificarFechaFin(int codigo,Date fechaFin)
 	{
 		if(!planillas.isEmpty())
@@ -111,5 +114,9 @@ public class ListaPlanillas
 			}
 		}
 		return cont;
+	}
+	public int productoMasPedido(int idProducto)
+	{
+		return planillas.productoMasPedido(idProducto);
 	}
 }
