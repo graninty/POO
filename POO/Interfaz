@@ -1,0 +1,58 @@
+public class Menu extends JPanel 
+{
+  private JTextField txtZakaz;
+
+	public Menu() 
+	{
+		setBackground(Color.RED);
+		setForeground(Color.RED);
+		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "", TitledBorder.LEADING, TitledBorder.TOP, null, Color.RED));
+		setLayout(new GridLayout(0, 3, 2, 5));
+		
+		JLabel label_4 = new JLabel("");
+		label_4.setBackground(Color.RED);
+		label_4.setForeground(Color.RED);
+		add(label_4);
+		
+		txtZakaz = new JTextField();
+		txtZakaz.setForeground(Color.YELLOW);
+		txtZakaz.setBackground(Color.RED);
+		txtZakaz.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 16));
+		txtZakaz.setHorizontalAlignment(SwingConstants.CENTER);
+		txtZakaz.setText("ZAKAZ");
+		add(txtZakaz);
+		txtZakaz.setColumns(10);
+		
+		JLabel label_5 = new JLabel("");
+		add(label_5);
+		
+		JButton btnConsola = new JButton("Inicio");
+		btnConsola.setBackground(Color.WHITE);
+		btnConsola.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		add(btnConsola);
+		
+		JLabel label = new JLabel("");
+		add(label);
+		
+		JButton btnAgregarPlanilla = new JButton("Agregar Planilla");
+		btnAgregarPlanilla.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		
+		JButton btnMostrarPlanilla = new JButton("Mostrar Planilla");
+		btnMostrarPlanilla.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		add(btnMostrarPlanilla);
+		btnAgregarPlanilla.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		add(btnAgregarPlanilla);
+		
+		JLabel label_1 = new JLabel("");
+		add(label_1);
+		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		add(btnSalir);
+
+	}
+
+}
