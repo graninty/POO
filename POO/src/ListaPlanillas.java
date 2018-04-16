@@ -120,7 +120,7 @@ public class ListaPlanillas
 		int suma=0;
 		for(int i=0;i<planillas.size();i++)
 		{
-			suma=suma+planillas.get(i).productosMasPedido(idProducto);
+			suma=suma+planillas.get(i).productoMasPedido(idProducto);
 		}
 		return suma;
 	}
