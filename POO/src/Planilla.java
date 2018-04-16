@@ -1,8 +1,11 @@
 package zakaz;
 
-public class Planilla
+import java.sql.Date;
+import java.util.*;
+
+public class Planilla 
 {
-    private Date fechaInicio;
+	private Date fechaInicio;
 	private Date fechaFin;
 	private int codigo;
 	private Vehiculo transporte;
@@ -10,12 +13,14 @@ public class Planilla
 	private ListaEncargos encargos;
 	private Local despacho;
 	
-	public Planilla(int codigo)
+	public Planilla(int codigo,Date fechaInicio,Date fechaFin)
 	{
 		this.codigo=codigo;
-		transporte=new Vehiculo();
-		encargos=new ArrayList<Encargo>();
-		conductor=new Persona();
+		this.fechaInicio=fechaInicio;
+		this.fechaFin=fechaFin;
+		setTransporte(new Vehiculo(null, null, null, null));
+		encargos=new ListaEncargos();
+		setConductor(new Persona());
 		despacho=new Local();
 	}
 	public Date getFechaInicio() {
@@ -30,15 +35,37 @@ public class Planilla
 		return fechaFin;
 	}
 
-	public void setFechaFin(Date fechaFin) {
+	public void setFechaFin(Date fechaFin)
+	{
 		this.fechaFin = fechaFin;
 	}
 
-	public int getCodigo() {
+	public int getCodigo()
+	{
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(int codigo) 
+	{
 		this.codigo = codigo;
+	}
+	public Vehiculo getTransporte() 
+	{
+		return transporte;
+	}
+	public void setTransporte(Vehiculo transporte)
+	{
+		this.transporte = transporte;
+	}
+	public Persona getConductor()
+	{
+		return conductor;
+	}
+	public void setConductor(Persona conductor) {
+		this.conductor = conductor;
+	}
+	public int productoMasPedido(int idProducto)
+	{
+		return encargos.productoMasPedido(idProducto);
 	}
 }
