@@ -132,4 +132,18 @@ public int cantidadProductos(){
     return listaProducto.size();
 }
 
+	public Producto productoMasVendido(ListaPlanillas planillas)
+	{
+		int cantMay=0;
+		Producto productoMay = new Producto();
+		for(int i=0;i<listaProducto.size();i++)
+		{
+			if(planillas.productoMasPedido(listaProducto.get(i).getId())>cantMay)
+			{
+				productoMay=((Producto)(listaProducto.get(i)));
+				cantMay=(planillas.productoMasPedido(listaProducto.get(i).getId()));
+			}
+		}
+		return productoMay;
+	}
 }
