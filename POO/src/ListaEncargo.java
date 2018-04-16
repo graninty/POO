@@ -11,7 +11,7 @@ public class ListaEncargo
 		listaEncargos = new ArrayList<Encargo>();
 	}
 		
-	/* MÃ©todos */
+	/* Métodos */
 	
 	public boolean agregarEncargo(Encargo e)
 	{
@@ -143,14 +143,18 @@ public class ListaEncargo
 	public int productoMasPedido(int idProducto)
 	{
 		int suma=0;
-		for(int i=0;i<encargos.size();i++)
+		for(int i=0;i<listaEncargos.size();i++)
 		{
-			if(encargos.get(i).getId()==idProducto)
+			if(listaEncargos.get(i).getProducto().getId()==idProducto)
 			{
-				suma=suma+encargos.get(i).getCantidad();
+				suma=suma+listaEncargos.get(i).getCantidad();
 			}
 		}
 		return suma;
 	}
+
+    public int cantidadProductos() {
+        return listaEncargos.size();
+    }
 
 }

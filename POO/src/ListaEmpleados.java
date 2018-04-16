@@ -54,7 +54,7 @@ public class ListaEmpleados {
 			return false;
 		else{
 			for(int i=0; i<empleados.size();i++){
-				Persona empleado = new Persona(null, null, null);
+				Persona empleado = new Persona();
 				empleado = empleados.get(i);
 				if(empleado.getRut().equals(rut)){
 					empleado.setRut(mod.getRut());

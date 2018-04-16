@@ -110,25 +110,24 @@ public class ListaLocales
         return false;
     }
     
-    public void mostrarLocales()
+    public String mostrarLocales()
     {
-        if(listaLocales.isEmpty())
-        {
-            return;
-        }
-        else
+        String locales="";
+        if(!listaLocales.isEmpty())
         {
             for(int i=0; i<listaLocales.size(); i++)
             {
-                System.out.println(listaLocales.get(i).getId()+"\t"
+                locales+=("\n"+listaLocales.get(i).getId()+"\t"
                                     +listaLocales.get(i).getNombre()+"\t"
                                     +listaLocales.get(i).getDireccion()+"\t"
+                                    +listaLocales.get(i).getCiudad()+"\t"
                                     +listaLocales.get(i).getEncargado().getNombre()+"\t");
             }
         }
+        return locales;
     }
 	
-    public Local mostrarLocal(int i)
+    public Local buscarLocal(int i)
     {
         if(!listaLocales.isEmpty())
         {

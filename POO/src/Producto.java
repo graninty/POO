@@ -9,6 +9,12 @@ public class Producto {
 	 * @param nombre
 	 * @param valor
 	 */
+	public Producto() {
+		super();
+		this.id = 0;
+		this.nombre = null;
+		this.valor = 0;
+	}
 	public Producto(int id, String nombre, int valor) {
 		super();
 		this.id = id;

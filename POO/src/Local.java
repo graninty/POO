@@ -66,5 +66,10 @@ public class Local
         this.encargado = encargado;
     }
 
+    public String toString()
+    {
+        return("ID: "+ id +" nombre: "+ nombre +" ciudad: "+ ciudad +" direccion: "+ direccion +" encargado: "+ encargado.getNombre());
+    }
+
 
 }

@@ -16,7 +16,7 @@ public class ListaVehiculo
 	
 	
 	
-	/* Mï¿½todos */
+	/* Métodos */
 	
 	public boolean agregarVehiculo(Vehiculo v)
 	{
@@ -90,7 +90,6 @@ public class ListaVehiculo
 		if(!listaVehiculos.isEmpty())
 		{
 				return listaVehiculos.get(i);
-			
 		}
 		return null;
 	}
@@ -162,6 +161,25 @@ public class ListaVehiculo
 		}
 		
 		return contador;
+	}
+        
+	public Vehiculo buscarVehiculo(String patente)
+	{
+		if(!listaVehiculos.isEmpty())
+		{
+			for(int i=0; i<listaVehiculos.size();i++)
+			{
+				if(listaVehiculos.get(i) != null)
+				{
+					if(listaVehiculos.get(i).getPatente().equalsIgnoreCase(patente))
+					{
+						return listaVehiculos.get(i);
+					}
+				}
+			}
+		}
+		
+		return null;
 	}
 	
 }

@@ -123,5 +123,52 @@ public class ListaPlanillas
 			suma=suma+planillas.get(i).productoMasPedido(idProducto);
 		}
 		return suma;
+	}     
+	public Planilla mostrarPlanilla(int i)
+	{
+            return planillas.get(i);
 	}
+        public int cantidadPlanillas(){
+            return planillas.size();
+        }
+	public int cantidadProductos(int idPlanilla)
+	{
+		for(int i=0;i<planillas.size();i++)
+		{
+                    if (planillas.get(i).getCodigo()==idPlanilla)
+                        return planillas.get(i).cantidadProductos();
+		}
+		return 0;
+        }
+	public boolean agregarPlanilla(Planilla p)
+	{
+		if(buscarPlanilla(p.getCodigo())==null)
+		{
+			planillas.add(p);
+			if(buscarPlanilla(p.getCodigo())!=null)
+				return true;
+		}
+		return false;
+	}
+	public Planilla retornarPlanilla(int pos)
+	{
+            return planillas.get(pos);
+	}
+	public String mostrarPlanillas()
+	{
+            String listado="";
+            if(!planillas.isEmpty())
+            {
+                for(int i=0; i<planillas.size(); i++)
+                {
+                    listado+=("\n"+ String.valueOf(planillas.get(i).getFechaInicio())+"\t"
+                                        +planillas.get(i).getFechaFin()+"\t"
+                                        +planillas.get(i).getCodigo()+"\t"
+                                        +planillas.get(i).getConductor().getRut()+"\t"
+                                        +planillas.get(i).getDespacho().getId()+"\t"
+                                        +planillas.get(i).getTransporte().getPatente()+"\t");
+                }
+            }
+            return listado;
+        }
 }

@@ -10,7 +10,7 @@ public class Planilla
 	private int codigo;
 	private Vehiculo transporte;
 	private Persona conductor;
-	private ListaEncargos encargos;
+	private ListaEncargo encargos;
 	private Local despacho;
 	
 	public Planilla(int codigo,Date fechaInicio,Date fechaFin)
@@ -19,9 +19,9 @@ public class Planilla
 		this.fechaInicio=fechaInicio;
 		this.fechaFin=fechaFin;
 		setTransporte(new Vehiculo(null, null, null, null));
-		encargos=new ListaEncargos();
+		encargos=new ListaEncargo();
 		setConductor(new Persona());
-		despacho=new Local();
+		despacho=new Local(0,null,null,null,null);
 	}
 	public Date getFechaInicio() {
 		return fechaInicio;
@@ -67,5 +67,21 @@ public class Planilla
 	public int productoMasPedido(int idProducto)
 	{
 		return encargos.productoMasPedido(idProducto);
+	}
+	public void setDespacho(Local despacho)
+	{
+		this.despacho = despacho;
+	}
+	public Local getDespacho()
+	{
+		return despacho;
+	}
+	public int cantidadProductos()
+	{
+		return encargos.cantidadProductos();
+	}
+	public boolean agregarEncargo(Encargo e){
+		encargos.agregarEncargo(e);
+		return false;
 	}
 }

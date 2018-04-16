@@ -56,8 +56,4 @@ public class Vehiculo
 	{
 		this.patente = patente;
 	}
-	
-	
-	
-	
 }
