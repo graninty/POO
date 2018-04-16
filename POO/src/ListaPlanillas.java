@@ -117,6 +117,11 @@ public class ListaPlanillas
 	}
 	public int productoMasPedido(int idProducto)
 	{
-		return planillas.productoMasPedido(idProducto);
+		int suma=0;
+		for(int i=0;i<planillas.size();i++)
+		{
+			suma=suma+planillas.get(i).productosMasPedido(idProducto);
+		}
+		return suma;
 	}
 }
