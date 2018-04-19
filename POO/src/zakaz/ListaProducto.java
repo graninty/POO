@@ -8,20 +8,9 @@ public class ListaProducto {
 	/**
 	 * @param listaProducto
 	 */
-	public ListaProducto(ArrayList<Producto> listaProducto) {
-		super();
-		this.listaProducto = listaProducto;
-	}
+	
 	public ListaProducto() {
 		this.listaProducto = new ArrayList<>();
-	}
-
-	public ArrayList<Producto> getListaProducto() {
-		return listaProducto;
-	}
-
-	public void setListaProducto(ArrayList<Producto> listaProducto) {
-		this.listaProducto = listaProducto;
 	}
 	/**
 	 * 

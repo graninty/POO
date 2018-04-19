@@ -9,21 +9,11 @@ public class ListaEmpleados {
 	/**
 	 * @param empleados
 	 */
-	public ListaEmpleados(ArrayList<Persona> empleados) {
-		super();
-		this.empleados = empleados;
-	}
 	public ListaEmpleados() {
-		this.empleados = new ArrayList<>();
+		this.empleados = new ArrayList<Persona>();
 	}
-
-	public ArrayList<Persona> getEmpleados() {
-		return empleados;
-	}
-
-	public void setEmpleados(ArrayList<Persona> empleados) {
-		this.empleados = empleados;
-	}
+	
+	
 	/**
 	 * 
 	 * @param nuevo

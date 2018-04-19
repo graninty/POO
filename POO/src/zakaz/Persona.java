@@ -13,13 +13,11 @@ public class Persona {
 	 * @param rut
 	 */
 	public Persona() {
-		super();
 		this.nombre = null;
 		this.fechaNac = null;
 		this.rut = null;
 	}
 	public Persona(String nombre, Date fechaNac, String rut) {
-		super();
 		this.nombre = nombre;
 		this.fechaNac = fechaNac;
 		this.rut = rut;
