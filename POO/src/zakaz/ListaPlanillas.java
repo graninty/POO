@@ -10,6 +10,8 @@ public class ListaPlanillas
 	{
 		planillas=new ArrayList<Planilla>();
 	}
+	
+	
 	public Planilla buscarPlanilla(int codigo)
 	{
 		for(int i=0;i<planillas.size();i++)
@@ -59,15 +61,17 @@ public class ListaPlanillas
 		}
 		return false;
 	}
-	@SuppressWarnings("unused")
 	public boolean modificarFechaFin(int codigo,Date fechaFin)
 	{
 		if(!planillas.isEmpty())
 		{
 			for(int i=0;i<planillas.size();i++)
 			{
-				planillas.get(i).setFechaFin(fechaFin);
-				return true;
+				if(buscarPlanilla(codigo)!=null)
+				{
+					planillas.get(i).setFechaFin(fechaFin);
+					return true;
+				}
 			}
 		}
 		return false;
@@ -123,7 +127,82 @@ public class ListaPlanillas
 			suma=suma+planillas.get(i).productoMasPedido(idProducto);
 		}
 		return suma;
-	}     
+	}
+	public Persona conductorConMasViajes()
+	{
+
+		int mayor=0;
+		String mayorConductor = null;
+		Persona conductor;
+		if(!planillas.isEmpty())
+		for(int i=0;i<planillas.size();i++)
+		{
+			conductor=((Persona)(planillas.get(i).getConductor()));
+			if(contarConductor(conductor.getRut())>mayor)
+			{
+				mayorConductor=conductor.getRut();
+			}
+		}
+		if(mayorConductor!=null)
+			return buscarConductor(mayorConductor);
+		else
+			return null;
+	}
+	public int contarConductor(String rut)
+	{
+
+		int cont=0;
+		for(int i=0;i<planillas.size();i++)
+		{
+			if(((Persona)(planillas.get(i).getConductor())).getRut()==rut)
+			{
+				cont++;
+			}
+		}
+		return cont;
+	}
+	public Persona buscarConductor(String rut)
+	{
+		Persona conductor;
+		for(int i=0;i<planillas.size();i++)
+		{
+			conductor=((Persona)(planillas.get(i).getConductor()));
+			if(conductor.getRut()==rut)
+				return conductor;
+		}
+		return null;
+	}
+	public boolean modificarVehiculo(int codigo,String marca,String tipo,String patente,String modelo)
+	{
+		Vehiculo transporte=new Vehiculo(marca,tipo,modelo,patente);
+		if(!planillas.isEmpty())
+		{
+			for(int i=0;i<planillas.size();i++)
+			{
+				if(buscarVehiculo(patente,codigo)!=null)
+				{
+					planillas.get(i).setTransporte(transporte);
+					if(buscarVehiculo(patente,codigo).getPatente()==transporte.getPatente())
+						return true;
+				}	
+			}
+		}
+		return false;
+	}
+	public Vehiculo buscarVehiculo(String patente,int codigo)
+	{
+		Vehiculo transporte;
+		for(int i=0;i<planillas.size();i++)
+		{
+			if(planillas.get(i).getCodigo()==codigo)
+			{
+				transporte=((Vehiculo)(planillas.get(i).getTransporte()));
+				if(transporte.getPatente()==patente)
+					return transporte;
+			}
+		}
+		return null;
+	}
 	public Planilla mostrarPlanilla(int i)
 	{
             return planillas.get(i);
