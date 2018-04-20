@@ -11,7 +11,7 @@ public class ListaEncargo
 		listaEncargos = new ArrayList<Encargo>();
 	}
 		
-	/* Métodos */
+	/* Mï¿½todos */
 	
 	public boolean agregarEncargo(Encargo e)
 	{
@@ -138,6 +138,14 @@ public class ListaEncargo
 		return null;
 	}
 	
+	public Encargo mostrarEncargo(int indicador)
+	{
+		if(!listaEncargos.isEmpty())
+		{
+			return listaEncargos.get(indicador);
+		}
+		return null;
+	}
 	
 	
 	public int productoMasPedido(int idProducto)
@@ -153,7 +161,8 @@ public class ListaEncargo
 		return suma;
 	}
 
-    public int cantidadProductos() {
+    public int cantidadProductos() 
+    {
         return listaEncargos.size();
     }
 

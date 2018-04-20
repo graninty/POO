@@ -16,7 +16,7 @@ public class ListaVehiculo
 	
 	
 	
-	/* Métodos */
+	/* Mï¿½todos */
 	
 	public boolean agregarVehiculo(Vehiculo v)
 	{
@@ -85,6 +85,7 @@ public class ListaVehiculo
 		}
 		
 	}
+	
 	public Vehiculo mostrarVehiculo(int i)
 	{
 		if(!listaVehiculos.isEmpty())
@@ -94,26 +95,20 @@ public class ListaVehiculo
 		return null;
 	}
         
-	public void mostrarVehiculosPorTipo(String tipo)
-	{
-		int contador=1;
-		
-		if(listaVehiculos.isEmpty())
+	public Vehiculo mostrarVehiculosPorTipo(String tipo, int indicador) //Este metodo recibe el tipo de vehiculo que se desea mostrar y un indicador/iterador de la posicion de la lista donde se busca 
+	{	
+		if(!listaVehiculos.isEmpty())
 		{
-			return;
-		}
-		
-		else
-		{
-			for(int i=0; i<listaVehiculos.size(); i++)
+			if(listaVehiculos.get(indicador).getTipo() !=null)
 			{
-				if(listaVehiculos.get(i).getTipo().equalsIgnoreCase(tipo))
+				if(listaVehiculos.get(indicador).getTipo().equalsIgnoreCase(tipo))
 				{
-					System.out.println(contador+"-. "+listaVehiculos.get(i).getTipo()+" "+listaVehiculos.get(i).getModelo()+" PATENTE:"+listaVehiculos.get(i).getPatente());
-					contador++;
+					return listaVehiculos.get(indicador);
 				}
 			}
 		}
+		
+		return null;
 	}
 	
 	public boolean existeVehiculo(Vehiculo v)
