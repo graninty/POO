@@ -81,7 +81,6 @@ public class Planilla
 		return encargos.cantidadProductos();
 	}
 	public boolean agregarEncargo(Encargo e){
-		encargos.agregarEncargo(e);
-		return false;
+		return encargos.agregarEncargo(e);
 	}
 }
