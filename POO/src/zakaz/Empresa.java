@@ -285,17 +285,17 @@ public class Empresa
     }
     private void guardarEncargos() throws SQLException {}
 	
-//    public Producto productoMasVendido()
-//    {
-//    	return productos.productoMasVendido(planillas);
-//    }
+	public Producto productoMasVendido()
+  	{
+   		return productos.productoMasVendido(planillas);
+	}
     
     public void informePlanillas(String nombreHoja,String nombreArchivo,String tituloPlanilla) throws IOException{
         //planillas;
         
         String[] encabezados = new String[]{
             "Codigo",
-            "Fecha Recepción",
+            "Fecha RecepciÃ³n",
             "Fecha Envio",
             "Vehiculo",
             "Conductor",
@@ -376,7 +376,7 @@ public class Empresa
         String[] encabezados = new String[]{
             "ID",
             "NOMBRE",
-            "DIRECCIÓN",
+            "DIRECCIÃ“N",
             "CIUDAD",
             "ENCARGADO"
         };
