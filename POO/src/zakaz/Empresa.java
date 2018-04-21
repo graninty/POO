@@ -19,6 +19,11 @@ import java.text.SimpleDateFormat;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 public class Empresa
 {
+    private String nombre;
+    private String direccion;
+    private String rutEmpresa;
+    private String telefonoEmpresa;
+    private Persona encargado;
 
     ListaProducto productos;
     ListaLocales locales;
@@ -27,12 +32,21 @@ public class Empresa
     ListaPlanillas planillas;
     
 
-    public Empresa() {
-        this.productos = new ListaProducto();
-        this.locales = new ListaLocales();
-        this.vehiculos = new ListaVehiculo();
-        this.empleados = new ListaEmpleados();
-        this.planillas = new ListaPlanillas();
+    public Empresa(String nombre,
+                   String direccion,
+                   String rutEmpresa,
+                   String telefonoEmpresa) {
+	    
+	this.nombre= nombre;
+        this.direccion= direccion;
+        this.rutEmpresa= rutEmpresa;
+        this.telefonoEmpresa= telefonoEmpresa;
+	    
+        productos = new ListaProducto();
+        locales = new ListaLocales();
+        vehiculos = new ListaVehiculo();
+        empleados = new ListaEmpleados();
+        planillas = new ListaPlanillas();
     }
 	
     public void cargar() throws SQLException, ParseException{
@@ -51,7 +65,63 @@ public class Empresa
         guardarPlanillas();
         guardarEncargos();            
     }
-        
+    public String getNombre(){
+        return nombre;
+    }
+    public String getDireccion(){
+        return direccion;
+    }
+    public String getRutEmpresa(){
+        return rutEmpresa;
+    }
+    public String getTelefonoEmpresa(){
+        return telefonoEmpresa;
+    }
+    public boolean agregarEncargado(String nombre,
+                                    Date fechNac,
+                                    String rut){
+        if (encargado==null){
+            encargado = new Persona(nombre,fechNac,rut);
+            return true;
+        }
+        return false;
+    }
+    public boolean cambiarEncargado(String nombre,
+                                    Date fechNac,
+                                    String rut){
+        if (encargado!=null){
+            encargado.setNombre(nombre);
+            encargado.setFechNac(fechNac);
+            encargado.setRut(rut);
+            return true;
+        }
+        return false;
+    }
+    public boolean agregarProducto(String nombre,
+                                   Integer id,
+                                   Integer valor){      
+        if (productos.agregarProducto(nombre,id,valor)==true){//agregarProducto de la clase ListaProductos debe agregar el producto solo si la id del producto no existe.
+            return true;
+        }
+        return false;
+    }
+    public boolean agregarVehiculo(String marca,
+                                   String tipoVehiculo,
+                                   String modelo,
+                                   String patente){      
+        if (productos.agregarVehiculo(marca,tipoVehiculo,modelo, patente)==true){//agregarVehiculo de la clase ListaVehiculos debe agregar el vehiculo solo si la patente no existe.
+            return true;
+        }
+        return false;
+    }
+    public boolean agregarPlanilla(String nombre,
+                                   Integer id,
+                                   Integer valor){      
+        if (productos.agregarProducto(nombre,id,valor)==true){//agregarProducto de la clase ListaProductos debe agregar el producto solo si la id del producto no existe.
+            return true;
+        }
+        return false;
+    }
     private void cargarProductos() throws SQLException {
         String query = "select id,nombre,valor from Productos;";
         Conexion conexion = new Conexion();
